@@ -31,9 +31,9 @@
         <p><input type="submit" value="Submit"></p>
       </form>
     </div>
-    <div v-show="!showForm" class="success-message"><!-- TODO: Modulate display of the .success-message using v-show and the showForm variable. -->
+    <div v-show="!showForm" class="success-message">
       <h1>Thank you for signing up!</h1>
-      <p>Please take our new member survey. Click here</p><!-- TODO: Link "Click here" to the survey page. -->
+      <p>Please take our new member survey. <router-link to ="Survey"> Click here</router-link></p>
     </div>
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
     validateForm: function () {
       
       if ((this.username != '') &&
-        (this.email='') &&
+        (this.email !='') &&
       (this.password === this.passwordVerify)){
         console.log('form is valid.');
         this.showForm = false;
